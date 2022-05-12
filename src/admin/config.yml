@@ -1,0 +1,6 @@
+backend:
+  name: github
+  repo: emelleme/wheat-stack # CHANGE ME
+  branch: master
+  base_url: https://wheat-stack.pages.dev # CHANGE ME
+  auth_endpoint: api/auth
