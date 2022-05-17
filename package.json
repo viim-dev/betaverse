@@ -9,7 +9,7 @@
     "build:css": "tailwindcss -i src/_bundle/main.pcss -o dist/assets/main.bundle.css --minify --postcss",
     "build:js": "esbuild src/_bundle/main.js --outfile=dist/assets/main.bundle.js --bundle",
     "clean": "rm -rf dist",
-    "dev": "cross-env NODE_ENV=development npm-run-all -p dev:*",
+    "start": "cross-env NODE_ENV=development npm-run-all -p dev:*",
     "dev:11ty": "eleventy --serve --quiet",
     "dev:css": "tailwindcss -i src/_bundle/main.pcss -o dist/assets/main.bundle.css --watch --postcss",
     "dev:js": "esbuild src/_bundle/main.js --outfile=dist/assets/main.bundle.js --bundle --watch"
@@ -17,6 +17,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emelleme/wheat-stack.git"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "glitch": {
+    "projectType": "generated_static"
   },
   "prettier": {
     "semi": false,
@@ -37,17 +43,19 @@
   },
   "homepage": "https://github.com/emelleme/wheat-stack#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "alpinejs": "^3.1.0",
-    "cross-env": "^6.0.3",
-    "daisyui": "^2.14.0",
-    "esbuild": "^0.12.9",
-    "node-fetch": "^3.0.0",
+    "@11ty/eleventy": "^1.0.1",
+    "alpinejs": "^3.10.2",
+    "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
+    "daisyui": "^2.15.0",
+    "esbuild": "^0.14.38",
+    "node-fetch": "^3.2.3",
     "npm-run-all": "^4.1.5",
-    "postcss-import": "^14.0.0",
+    "postcss": "^8.4.13",
+    "postcss-import": "^14.1.0",
     "serverless-cloudflare-workers": "^1.2.0",
     "tailwindcss": "^3.0.24",
-    "tailwindcss-debug-screens": "^1.1.0",
-    "wrangler": "^0.0.10"
+    "tailwindcss-debug-screens": "^2.2.1",
+    "wrangler": "^2.0.0"
   }
 }
