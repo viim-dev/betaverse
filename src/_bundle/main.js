@@ -2,6 +2,14 @@ import Alpine from 'alpinejs'
 
 window.Alpine = Alpine
 
+if('geolocation' in navigator) {
+  /* geolocation is available */
+  console.log('avail')
+} else {
+  /* geolocation IS NOT available */
+  console.log('not avail')
+}
+
 // Start Alpine when the page is ready.
 window.addEventListener('DOMContentLoaded', () => {
   Alpine.start()

@@ -4,7 +4,51 @@
 {% extends "layout.njk" %}
 
 {% block body %}
-  <main class="container py-8">
-    <h1 class="text-[62px]">This is the {{ title | lower }} page.</h1>
+  <main class="py-8">
+
+<section class="text-primary-content body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <img alt="content" class="w-full" src="https://cdn.glitch.global/b426bced-20bb-4c94-b19b-582224045725/vimwhite.png?v=1652820319383">
+      </div>
+    <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
+      <div class="flex flex-col mb-10 lg:items-start items-center">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-accent-content text-lg title-font font-medium mb-3">Pre-flight Check</h2>
+          <p class="leading-relaxed text-base">This test environment requires a compatible smartphone running Android O or later.</p>
+          
+        </div>
+      </div>
+      <div class="flex flex-col mb-10 lg:items-start items-center">
+        <div class="divider">step 1</div> 
+        <div class="flex-grow">
+          <p class="leading-relaxed text-base">Install ARCore</p>
+          <a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.ar.core&e=-EnableAppDetailsPageRedesign" class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col mb-10 lg:items-start items-center">
+       <div class="divider">step 2</div> 
+        <div class="flex-grow">
+          <p class="leading-relaxed text-base">Activate two Chrome flags (navigate to chrome://flags in chrome on android): 
+            <br>search for and activate WebXRDevice API (#webxr) and WebXR Hit Test (#webxr-hit-test)</p>
+          
+        </div>
+        
+      </div>
+      <div class="divider"></div> 
+      <button class="btn btn-outline btn-success">Enter Locker room</button>
+    </div>
+    
+  </div>
+</section>
   </main>
 {% endblock %}
