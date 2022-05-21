@@ -8,7 +8,7 @@ const errorHandler = async ({ next }) => {
   
   const hello = async ({ next }) => {
     const response = await next();
-    response.headers.set('Sec-FedCM-CSRF', '?1');
+    // response.headers.set('Sec-FedCM-CSRF', '?1');
     return response;
   };
   
