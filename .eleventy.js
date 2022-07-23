@@ -2,8 +2,8 @@ const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 module.exports = (config) => {
-  config.addPassthroughCopy({ 'public': './' })
-  //config.addPassthroughCopy({ 'assets': './src/assets' }) # uncomment to enable assets directory
+  config.addPassthroughCopy({ 'src/assets': './assets' })
+  config.addPassthroughCopy({ 'src/arconfig.json': './arconfig.json' })
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
     open: true,
