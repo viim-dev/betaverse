@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Styling</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+<div id="canvas"></div>
+<script type="text/javascript">
+
+    const qrCode = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        type: "svg",
+        data: "https://vim.dev",
+        image: "https://viim.dev/assets/vimtoken.png",
+        dotsOptions: {
+            color: "#360000",
+            type: "rounded"
+        },
+        backgroundOptions: {
+            color: "#e9ebee",
+        },
+        imageOptions: {
+            crossOrigin: "anonymous",
+            margin: 5
+        }
+    });
+
+    qrCode.append(document.getElementById("canvas"));
+    qrCode.download({ name: "qr", extension: "svg" });
+</script>
+</body>
+</html>
