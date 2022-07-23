@@ -5,6 +5,7 @@ module.exports = (config) => {
 
   config.addPassthroughCopy({ 'src/arconfig.json': './arconfig.json' })
   config.addPassthroughCopy('src/assets/*.js');
+  config.addPassthroughCopy({'src/assets/aframe-v1.2.0.min.js':'./assets/aframe-v1.2.0.min.js'});
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
     open: true,
