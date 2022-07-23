@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = (config) => {
 
   config.addPassthroughCopy({ 'src/arconfig.json': './arconfig.json' })
+  config.addPassthroughCopy({"src/assets": './assets'});
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
     open: true,
