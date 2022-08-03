@@ -20,35 +20,14 @@ export async function onRequestGet(context) {
     // return new Response();
   }
 
-  async function handleRequest() {
-  
-    // Only use the path for the cache key, removing query strings
-    // and always store using HTTPS e.g. https://www.example.com/file-uri-here
-    const someCustomKey = `${LINK_TO}`
-    console.log(someCustomKey)
-  
+  async function handleRequest(district) {
+    const destinationURL = LINK_TO;
+    const statusCode = 301;
+    
     try{
-      let response = await fetch(someCustomKey, {
-        cf: {
-          // Always cache this fetch regardless of content type
-          // for a max of 5 seconds before revalidating the resource
-          cacheTtl: 5,
-          cacheEverything: true,
-          //Enterprise only feature, see Cache API for other plans
-          cacheKey: someCustomKey,
-        },
-      })
-      // Reconstruct the Response object to make its headers mutable.
-      console.log(response.status)
-      response = new Response(response.body, response)
-      response.headers.set("Cache-Control", "max-age=300")
-      return response
+        return Response.redirect(destinationURL, statusCode);
     } catch(err){
       console.log(err)
     }
-    
-
-    // return false;
-    // Set cache control headers to cache on browser for 25 minutes
     
   }
