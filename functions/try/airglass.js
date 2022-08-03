@@ -1,4 +1,4 @@
-const LINK_TO = "https://www.8thwall.com/melle/airglass"
+const LINK_TO = "https://melle.8thwall.app/airglass/"
 export async function onRequestGet(context) {
     
     // Contents of context object
