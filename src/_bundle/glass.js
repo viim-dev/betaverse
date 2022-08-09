@@ -1,14 +1,6 @@
-import Alpine from 'alpinejs'
-
-window.Alpine = Alpine
-
-// Start Alpine when the page is ready.
-window.addEventListener('DOMContentLoaded', () => {
-    Alpine.start()
-
-    // get our elements
+// get our elements
 const slider = document.querySelector('.slider-container'),
-slides = Array.from(document.querySelectorAll('.slide'))
+slides = Array.from(document.querySelectorAll('.glassslide'))
 
 // set up our state
 let isDragging = false,
@@ -98,4 +90,3 @@ function setPositionByIndex() {
 function setSliderPosition() {
   slider.style.transform = `translateX(${currentTranslate}px)`
 }
-});
