@@ -12,7 +12,7 @@
     "start": "cross-env NODE_ENV=development npm-run-all -p dev:*",
     "dev:11ty": "eleventy --serve --quiet",
     "dev:css": "tailwindcss -i src/_bundle/main.pcss -o dist/assets/main.bundle.css --watch --postcss",
-    "dev:js": "esbuild src/_bundle/main.js --outfile=dist/assets/main.bundle.js --bundle --watch"
+    "dev:js": "esbuild src/_bundle/main.js --outfile=dist/assets/main.bundle.js & esbuild src/_bundle/glass.js --outfile=dist/assets/glass.bundle.js --bundle --watch"
   },
   "repository": {
     "type": "git",
