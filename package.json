@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production npm-run-all clean -p build:*",
     "build:11ty": "eleventy --quiet",
     "build:css": "tailwindcss -i src/_bundle/main.pcss -o dist/assets/main.bundle.css --minify --postcss",
-    "build:js": "esbuild src/_bundle/main.js --outfile=dist/assets/main.bundle.js --bundle",
+    "build:js": "esbuild src/_bundle/main.js --outfile=dist/assets/main.bundle.js --bundle & esbuild src/_bundle/glass.js --outfile=dist/assets/glass.bundle.js --bundle",
     "clean": "rm -rf dist",
     "start": "cross-env NODE_ENV=development npm-run-all -p dev:*",
     "dev:11ty": "eleventy --serve --quiet",
