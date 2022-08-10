@@ -1,4 +1,3 @@
-// get our elements
 const slider = document.querySelector('.slider-container'),
 slides = Array.from(document.querySelectorAll('.glassslide'))
 
