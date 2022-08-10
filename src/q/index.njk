@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -17,13 +16,13 @@
 </head>
 <body id="body" style="background-color:#000000;margin: 0px;overflow: hidden;">
 <a-scene embedded arjs="trackingMethod: best; sourceType: webcam" device-orientation-permission-ui="enabled: false" loading-screen="enabled: false" vr-mode-ui="enabled: false">
-<a-assets>
-<video id="video" src="/assets/static.mp4" preload="auto" response-type="arraybuffer" crossorigin webkit-playsinline autoplay playsinline></video>
-</a-assets>
-<a-marker type="pattern" preset="custom" url="/assets/viimhiro.patt" videohandler smooth="true" smoothCount="2" smoothTolerance="0.01" smoothThreshold="2">
-<a-video src="#video" width="6" height="3.6" scale="1 1 1" position="0 0 -1.7" rotation="-90 0 0"></a-video>
-</a-marker>
-<a-entity camera></a-entity>
+  <a-assets>
+  <video id="video" src="/assets/static.mp4" preload="auto" response-type="arraybuffer" crossorigin webkit-playsinline autoplay playsinline position="0 0 -20"></video>
+  </a-assets>
+  <a-marker type="pattern" preset="custom" url="/assets/viimhiro.patt" videohandler smooth="true" smoothCount="2" smoothTolerance="0.01" smoothThreshold="2">
+  <a-video src="#video" width="6" height="3.6" scale="1 1 1" position="0 0 -1.7" rotation="-90 0 0"></a-video>
+  </a-marker>
+  <a-entity camera></a-entity>
 </a-scene>
 <div style="position: fixed; bottom: 10px; right: 10px; max-width:150px; text-align: center; z-index: 1;color: grey; font-family: Arial, Helvetica, sans-serif;">Point your device's camera at the AR Code. Click to play/pause the video.</div>
 </body>
