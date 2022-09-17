@@ -8,12 +8,17 @@
 <body>
 <div id="canvas"></div>
 <script type="text/javascript">
+const queryString = window.location.search;
+console.log(queryString);
+const urlParams = new URLSearchParams(queryString);
+const code = urlParams.get('c') ? 'viim.dev'
+console.log(code);
 
     const qrCode = new QRCodeStyling({
         width: 500,
         height: 500,
         type: "svg",
-        data: "https://viim.dev/q",
+        data: "https://"+code,
         image: "/assets/viimhiro.png",
         dotsOptions: {
             color: "#000000",
