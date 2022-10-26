@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+		<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+		<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+		<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+		<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Product Showcase - Slider Revolution</title>
+			<meta name="description" content="Slider Revolution Example" />
+			<meta name="keywords" content="fullscreen image, grid layout, flexbox grid, transition" />
+			<meta name="author" content="ThemePunch" />
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<!-- LOAD JQUERY LIBRARY -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+			
+			<!-- LOADING FONTS AND ICONS -->
+			<link href="https://fonts.googleapis.com/css?family=Roboto:400%2C700%2C900%2C500%7CBowlby+One:400&display=swap" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+
+			
+			<link rel="stylesheet" type="text/css" href="/assets/fonts/pe-icon-7-stroke//assets/pe-icon-7-stroke.css">
+			<link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome//assets/font-awesome.css">
+			
+			<!-- REVOLUTION STYLE SHEETS -->
+			<link rel="stylesheet" type="text/css" href="/assets/css/rs6.css">
+			<!-- REVOLUTION LAYERS STYLES -->
+						<!-- REVOLUTION JS FILES -->
+			
+		<script>
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = true;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+					<script src="/assets/js/rbtools.min.js"></script>
+							<script src="/assets/js/rs6.min.js"></script>
+							
+			<script>function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) || (e.l=="fullwidth" || e.layout=="fullwidth") ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);
+					if(e.layout==="fullscreen" || e.l==="fullscreen")
+						newh = Math.max(e.mh,window.RSIH);
+					else{
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}
+			//});
+		  };</script>
+
+			
+		</head>
+		
+		<body>
+		
+
+			<!-- START Product Showcase REVOLUTION SLIDER 6.6.2 --><p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_30_1_wrapper" data-alias="product-showcase" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;">
+				<rs-module id="rev_slider_30_1" style="" data-version="6.6.2">
+					<rs-slides style="overflow: hidden; position: absolute;">
+						<rs-slide style="position: absolute;" data-key="rs-112" data-title="Slide" data-thumb="/assets/thumb1.jpg" data-anim="adpr:false;" data-in="o:0;" data-out="a:false;">
+							<img src="/assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-30-slide-112-layer-0" 
+								data-type="text"
+								data-color="#ffcc00"
+								data-rsp_ch="on"
+								data-xy="xo:774px,639px,485px,299px;yo:817px,674px,512px,315px;"
+								data-text="w:normal;s:29,23,17,10;l:40,33,25,15;"
+								data-frame_999="o:0;st:w;"
+								style="z-index:22;font-family:'Roboto';"
+							><i class="material-icons">help</i> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-1" 
+								class="rs-pxl-4"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:100px,100px,150px,89px;"
+								data-text="s:180,130,90,60;l:160,120,80,70;a:center;"
+								data-frame_0="y:100px;"
+								data-frame_1="e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;st:w;sR:7300;"
+								style="z-index:11;font-family:'Bowlby One';text-shadow:0px 15px 30px rgba(0, 0, 0, 0.15);"
+							>GLASS 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-3" 
+								class="rs-pxl-4"
+								data-type="text"
+								data-color="rgba(255, 255, 255, 0)||#1d2347||#1d2347||#1d2347"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:63px,50px,100px,50px;"
+								data-text="s:20,18,18,18;l:22,22,22,22;ls:3,3px,3px,3px;fw:700;a:inherit;"
+								data-frame_0="y:100px;"
+								data-frame_1="e:power3.out;st:100;sp:1500;sR:100;"
+								data-frame_999="o:0;st:w;sR:7400;"
+								style="z-index:9;background:url('http://zazamap.com/wp-content/uploads/2022/10/viim.png') no-repeat center center;background-size:cover;font-family:'Roboto';"
+							>    dfadsf 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-4" 
+								data-type="text"
+								data-color="#9198aa"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:660px,490px,580px,430px;"
+								data-text="w:normal;s:22,22,22,18;l:35,35,35,30;a:center;"
+								data-dim="w:640px,640px,480px,380px;"
+								data-frame_0="y:100px;"
+								data-frame_1="e:power3.out;st:400;sp:1500;sR:400;"
+								data-frame_999="o:0;st:w;sR:7100;"
+								style="z-index:16;font-family:'Roboto';.tp-list-sc{ 
+  color:#cecece !important;"
+							><i class="fa-check tp-list-sc"></i> Integrated display with WaveGuide Technology<br/>
+<i class="fa-check tp-list-sc"></i> 5.0 MP Camera | Wifi 5 + BLE 5.1 <br/>
+<i class="fa-check tp-list-sc"></i> Blockchain Enabled | Head Tracking | Voice Activated
+ 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-8" 
+								data-type="image"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:-58px,0,0,0;yo:189px,122px,120px,67px;"
+								data-text="l:22;a:inherit;"
+								data-dim="w:800px,400px,500px,400px;h:438px,400px,500px,400px;"
+								data-frame_0="y:100px;gra:0%;bri:75%;blu:0px;"
+								data-frame_1="e:power3.out;st:50;sp:1000;sR:50;"
+								data-frame_999="o:0;st:w;sR:7950;"
+								style="z-index:14;"
+							><img src="/assets/viimglass.png" alt="" class="tp-rs-img" width="1080" height="591" data-no-retina> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-9" 
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:801px,641px,731px,560px;"
+								data-text="s:18;l:70;ls:1px;fw:900;a:inherit;"
+								data-padding="r:50;l:50;"
+								data-border="bor:35px,35px,35px,35px;"
+								data-frame_0="y:100px;"
+								data-frame_1="e:power3.out;st:500;sp:1500;sR:500;"
+								data-frame_999="o:0;st:w;sR:7000;"
+								data-frame_hover="c:#fff;bgc:linear-gradient(90deg, rgba(211,83,74,1) 0%, rgba(186,12,0,1) 100%);bor:35px,35px,35px,35px;oX:50;oY:50;sp:200;e:power1.inOut;"
+								style="z-index:20;background:linear-gradient(90deg, rgba(191,35,0,1) 0%, rgba(214,84,74,1) 100%);font-family:'Roboto';cursor:pointer;-webkit-box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);-moz-box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);"
+							><i class="fa-shopping-cart" style=font-size:25px;margin-right:5px;"></i> PRE-ORDER NFT 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-10" 
+								class="tp-shape tp-shapewrapper rs-pxl-1"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:220px,161px,181px,150px;yo:265px,212px,242px,179px;"
+								data-text="a:inherit;"
+								data-dim="w:200px,150px,150px,120px;h:200px,150px,150px,120px;"
+								data-border="bor:100px,100px,100px,0px;"
+								data-frame_0="y:50px;sX:0.5;sY:0.5;"
+								data-frame_1="e:back.out;st:100;sp:500;sR:100;"
+								data-frame_999="o:0;st:w;sR:8400;"
+								style="z-index:17;background:linear-gradient(rgba(237,184,180,1) 0%, rgba(224,109,109,1) 100%);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-11" 
+								class="rs-svg rs-pxl-3"
+								data-type="svg"
+								data-color="#8500bd"
+								data-rsp_ch="on"
+								data-xy="xo:391px,340px,195px,104px;yo:199px,149px,174px,126px;"
+								data-text="a:inherit;"
+								data-dim="w:120px,120px,100px,50px;h:120px,120px,100px,50px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#bc0000||#8500bd||#8500bd||#8500bd;"
+								data-frame_0="x:center;y:middle;rZ:90deg;"
+								data-frame_1="rZ:25;e:power3.out;sp:1500;sR:10;"
+								data-frame_999="o:0;st:w;sR:7490;"
+								data-loop_0="rZ:30;oX:50;oY:50;"
+								data-loop_999="rZ:-30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:12;font-family:'Roboto';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-12" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#140e68"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:341px,259px,278px,212px;yo:441px,351px,385px,275px;"
+								data-text="a:inherit;"
+								data-dim="w:100px,70px,70px,50px;h:100px,70px,70px,50px;"
+								data-svg_src="/assets/ic_arrow_upward_24px.svg"
+								data-svgi="c:#140e68;"
+								data-frame_0="x:center;y:middle;rZ:180deg;"
+								data-frame_1="rZ:-45;e:power3.out;st:300;sp:1500;sR:300;"
+								data-frame_999="o:0;st:w;sR:7200;"
+								data-loop_999="x:5;y:5;e:power1.inOut;yym:t;yys:t;yyf:t;"
+								style="z-index:13;font-family:'Roboto';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-13" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:220px,160px,180px,150px;yo:340px,265px,295px,218px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:40,30,30,25;l:40,30,30,25;fw:900;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;"
+								data-frame_1="e:back.out;st:200;sp:500;sR:200;"
+								data-frame_999="o:0;st:w;sR:8300;"
+								style="z-index:18;font-family:'Roboto';"
+							>$999 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-14" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-color="rgba(255, 255, 255, 0.5)"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:220px,160px,180px,150px;yo:380px,295px,325px,242px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:18,18,18,15;l:22;fw:500;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;"
+								data-frame_1="e:back.out;st:250;sp:500;sR:250;"
+								data-frame_999="o:0;st:w;sR:8250;"
+								style="z-index:19;font-family:'Roboto';"
+							>Incl. Taxes 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-16" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#f9f9f9"
+								data-rsp_ch="on"
+								data-xy="xo:497px,476px,379px,188px;yo:-60px,9px,49px,23px;"
+								data-text="a:inherit;"
+								data-dim="w:600px,400px,300px,300px;h:600px,400px,300px,300px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#f9f9f9;"
+								data-frame_0="x:center;y:middle;rZ:20;"
+								data-frame_1="rZ:20;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;st:w;sR:7300;"
+								data-loop_0="rZ:20;oX:50;oY:50;"
+								data-loop_999="rZ:-20;sp:40000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:8;font-family:'Roboto';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-18" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#d94db6"
+								data-rsp_ch="on"
+								data-xy="xo:731px,577px,478px,314px;yo:504px,380px,451px,350px;"
+								data-text="a:inherit;"
+								data-dim="w:120px,100px,100px,50px;h:120px,100px,100px,50px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#ce4848||#d94db6||#d94db6||#d94db6;"
+								data-frame_0="x:center;y:middle;rZ:-90deg;"
+								data-frame_1="rZ:100;e:power3.out;sp:1500;sR:10;"
+								data-frame_999="o:0;st:w;sR:7490;"
+								data-loop_0="rZ:-30;oX:50;oY:50;"
+								data-loop_999="rZ:30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:15;font-family:'Roboto';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-19" 
+								class="tp-shape tp-shapewrapper"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:m;"
+								data-text="a:inherit;"
+								data-dim="w:2000px;h:1px;"
+								data-basealign="slide"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="rZ:35;"
+								data-frame_1="rZ:35;e:power3.out;st:200;sp:1000;sR:200;"
+								data-frame_999="o:0;st:w;sR:7800;"
+								style="z-index:6;background-color:rgba(145,152,170,0.25);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-20" 
+								class="tp-shape tp-shapewrapper"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:m;"
+								data-text="a:inherit;"
+								data-dim="w:2000px;h:1px;"
+								data-basealign="slide"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="rZ:-35;"
+								data-frame_1="rZ:-35;e:power3.out;st:200;sp:1000;sR:200;"
+								data-frame_999="o:0;st:w;sR:7800;"
+								style="z-index:7;background-color:rgba(145,152,170,0.25);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-21" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="rgba(217, 77, 182, 0.05)"
+								data-rsp_ch="on"
+								data-xy="x:r;xo:58px,-9px,-9px,0;y:b;yo:127px,98px,98px,96px;"
+								data-text="a:inherit;"
+								data-dim="w:200px,200px,200px,100px;h:200px,200px,200px,100px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:rgba(217, 77, 182, 0.05);"
+								data-frame_0="x:center;y:middle;rZ:-90deg;"
+								data-frame_1="rZ:200;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;st:w;sR:7300;"
+								data-loop_0="rZ:30;oX:50;oY:50;"
+								data-loop_999="rZ:-30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:21;font-family:'Roboto';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-112-layer-22" 
+								class="rs-svg rs-pxl-3"
+								data-type="svg"
+								data-color="rgba(217, 77, 182, 0.05)"
+								data-rsp_ch="on"
+								data-xy="xo:-18px,22px,22px,4px;yo:127px,121px,121px,-13px;"
+								data-text="a:inherit;"
+								data-dim="w:180px,180px,180px,100px;h:280px,180px,180px,100px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:rgba(217, 77, 182, 0.05);"
+								data-frame_0="x:center;y:middle;rZ:-90deg;"
+								data-frame_1="rZ:50;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;st:w;sR:7300;"
+								data-loop_0="rZ:-40;oX:50;oY:50;"
+								data-loop_999="rZ:40;sp:40000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:10;font-family:'Roboto';"
+							> 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-113" data-title="Slide" data-thumb="/assets/thumb2.jpg" data-anim="adpr:false;">
+							<img src="/assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-30-slide-113-layer-19" 
+								class="tp-shape tp-shapewrapper"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:m;"
+								data-text="a:inherit;"
+								data-dim="w:2000px;h:1px;"
+								data-basealign="slide"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="rZ:35;tp:600;"
+								data-frame_1="rZ:35;tp:600;e:power3.out;st:200;sp:1000;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7800;"
+								style="z-index:5;background-color:rgba(145,152,170,0.25);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-20" 
+								class="tp-shape tp-shapewrapper"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:m;"
+								data-text="a:inherit;"
+								data-dim="w:2000px;h:1px;"
+								data-basealign="slide"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="rZ:-35;tp:600;"
+								data-frame_1="rZ:-35;tp:600;e:power3.out;st:200;sp:1000;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7800;"
+								style="z-index:6;background-color:rgba(145,152,170,0.25);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-16" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#f9f9f9"
+								data-rsp_ch="on"
+								data-xy="xo:497px,476px,379px,188px;yo:-60px,9px,49px,23px;"
+								data-text="a:inherit;"
+								data-dim="w:600px,400px,300px,300px;h:600px,400px,300px,300px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#f9f9f9;"
+								data-frame_0="x:center;y:middle;rZ:20;tp:600;"
+								data-frame_1="rZ:20;tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								data-loop_0="rZ:20;oX:50;oY:50;"
+								data-loop_999="rZ:-20;sp:40000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:7;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-3" 
+								class="rs-pxl-4"
+								data-type="text"
+								data-color="#1d2347"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:50px,50px,100px,50px;"
+								data-text="s:18;l:22;ls:3px;fw:700;a:inherit;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:100;sp:1500;sR:100;"
+								data-frame_999="o:0;tp:600;st:w;sR:7400;"
+								style="z-index:8;font-family:'Roboto';"
+							>TECH EQUIPMENT 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-22" 
+								class="rs-svg rs-pxl-3"
+								data-type="svg"
+								data-color="rgba(217, 77, 182, 0.05)"
+								data-rsp_ch="on"
+								data-xy="xo:-18px,22px,22px,4px;yo:127px,121px,121px,-13px;"
+								data-text="a:inherit;"
+								data-dim="w:180px,180px,180px,100px;h:280px,180px,180px,100px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:rgba(217, 77, 182, 0.05);"
+								data-frame_0="x:center;y:middle;rZ:-90deg;tp:600;"
+								data-frame_1="rZ:50;tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								data-loop_0="rZ:-40;oX:50;oY:50;"
+								data-loop_999="rZ:40;sp:40000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:9;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-1" 
+								class="rs-pxl-4"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:100px,100px,150px,89px;"
+								data-text="s:180,130,90,60;l:160,120,80,70;a:center;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								style="z-index:10;font-family:'Bowlby One';text-shadow:0px 15px 30px rgba(0, 0, 0, 0.15);"
+							>WATCH 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-15" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#f7f6fb"
+								data-rsp_ch="on"
+								data-xy="xo:37px,78px,26px,-118px;yo:-5px,-24px,194px,41px;"
+								data-text="a:inherit;"
+								data-dim="w:1000px,800px,600px,600px;h:1000px,800px,600px,600px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#f7f6fb;"
+								data-frame_0="x:center;y:middle;rZ:75;tp:600;"
+								data-frame_1="rZ:75;tp:600;e:power3.out;st:100;sp:2000;sR:100;"
+								data-frame_999="o:0;tp:600;st:w;sR:6900;"
+								data-loop_0="rZ:-10;oX:50;oY:50;"
+								data-loop_999="rZ:10;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:11;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-11" 
+								class="rs-svg rs-pxl-3"
+								data-type="svg"
+								data-color="#8500bd"
+								data-rsp_ch="on"
+								data-xy="xo:391px,340px,195px,104px;yo:199px,149px,174px,126px;"
+								data-text="a:inherit;"
+								data-dim="w:120px,120px,100px,50px;h:120px,120px,100px,50px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#8500bd;"
+								data-frame_0="x:center;y:middle;rZ:90deg;tp:600;"
+								data-frame_1="rZ:25;tp:600;e:power3.out;sp:1500;sR:10;"
+								data-frame_999="o:0;tp:600;st:w;sR:7490;"
+								data-loop_0="rZ:30;oX:50;oY:50;"
+								data-loop_999="rZ:-30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:12;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-12" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#140e68"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:441px,329px,338px,212px;yo:441px,351px,395px,275px;"
+								data-text="a:inherit;"
+								data-dim="w:100px,70px,70px,50px;h:100px,70px,70px,50px;"
+								data-svg_src="/assets/ic_arrow_upward_24px.svg"
+								data-svgi="c:#140e68;"
+								data-frame_0="x:center;y:middle;rZ:180deg;tp:600;"
+								data-frame_1="rZ:-45;tp:600;e:power3.out;st:300;sp:1500;sR:300;"
+								data-frame_999="o:0;tp:600;st:w;sR:7200;"
+								data-loop_999="x:5;y:5;e:power1.inOut;yym:t;yys:t;yyf:t;"
+								style="z-index:13;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-8" 
+								class="rs-pxl-2"
+								data-type="image"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:55px,82px,72px,24px;"
+								data-text="l:22;a:inherit;"
+								data-dim="w:600px,400px,500px,400px;h:600px,400px,500px,400px;"
+								data-frame_0="y:100px;tp:600;gra:0%;bri:75%;blu:0px;"
+								data-frame_1="tp:600;e:power3.out;st:50;sp:1000;sR:50;"
+								data-frame_999="o:0;tp:600;st:w;sR:7950;"
+								style="z-index:14;"
+							><img src="/assets/watch_tp.png" alt="" class="tp-rs-img" width="800" height="800" data-no-retina> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-25" 
+								class="rs-pxl-1"
+								data-type="image"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:-160px,-110px,-140px,-110px;yo:140px,140px,130px,80px;"
+								data-text="l:22;a:inherit;"
+								data-dim="w:600px,400px,500px,400px;h:600px,400px,500px,400px;"
+								data-frame_0="y:100px;rZ:-25;tp:600;gra:0%;bri:75%;blu:0px;"
+								data-frame_1="rZ:-25;tp:600;e:power3.out;st:300;sp:1000;sR:300;"
+								data-frame_999="o:0;tp:600;st:w;sR:7700;"
+								style="z-index:15;"
+							><img src="/assets/watch_tp2.png" alt="" class="tp-rs-img" width="800" height="800" data-no-retina> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-26" 
+								data-type="image"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:160px,110px,140px,110px;yo:140px,140px,130px,80px;"
+								data-text="l:22;a:inherit;"
+								data-dim="w:600px,400px,500px,400px;h:600px,400px,500px,400px;"
+								data-frame_0="y:100px;rZ:25;tp:600;gra:0%;bri:75%;blu:0px;"
+								data-frame_1="rZ:25;tp:600;e:power3.out;st:550;sp:1000;sR:550;"
+								data-frame_999="o:0;tp:600;st:w;sR:7450;"
+								style="z-index:16;"
+							><img src="/assets/watch_tp3.png" alt="" class="tp-rs-img" width="800" height="800" data-no-retina> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-18" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#d94db6"
+								data-rsp_ch="on"
+								data-xy="xo:731px,577px,480px,314px;yo:504px,380px,445px,350px;"
+								data-text="a:inherit;"
+								data-dim="w:120px,100px,100px,50px;h:120px,100px,100px,50px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#d94db6;"
+								data-frame_0="x:center;y:middle;rZ:-90deg;tp:600;"
+								data-frame_1="rZ:100;tp:600;e:power3.out;sp:1500;sR:10;"
+								data-frame_999="o:0;tp:600;st:w;sR:7490;"
+								data-loop_0="rZ:-30;oX:50;oY:50;"
+								data-loop_999="rZ:30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:17;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-4" 
+								data-type="text"
+								data-color="#9198aa"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:630px,470px,540px,400px;"
+								data-text="w:normal;s:22,22,22,18;l:35,35,35,30;a:center;"
+								data-dim="w:640px,640px,480px,380px;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:400;sp:1500;sR:400;"
+								data-frame_999="o:0;tp:600;st:w;sR:7100;"
+								style="z-index:18;font-family:'Roboto';"
+							><i class="fa-check tp-list-sc"></i> Dual‑Core Processor, Integrated GPS<br/>
+<i class="fa-check tp-list-sc"></i> WIFI (802.11b/g/n 2,4 GHz), Bluetooth 4.0<br/>
+<i class="fa-check tp-list-sc"></i> OLED Retina Display<br/>
+<i class="fa-check tp-list-sc"></i> 312 x 390 Pixel (42 mm) 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-10" 
+								class="tp-shape tp-shapewrapper rs-pxl-1"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:320px,231px,261px,170px;yo:265px,212px,262px,169px;"
+								data-text="a:inherit;"
+								data-dim="w:200px,150px,150px,120px;h:200px,150px,150px,120px;"
+								data-border="bor:100px,100px,100px,0px;"
+								data-frame_0="y:50px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:100;sp:500;sR:100;"
+								data-frame_999="o:0;tp:600;st:w;sR:8400;"
+								style="z-index:19;background:linear-gradient(rgba(198,68,252,1) 0%, rgba(133,0,189,1) 50%, rgba(20,14,104,1) 100%);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-13" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:320px,230px,260px,170px;yo:340px,265px,315px,213px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:40,30,30,25;l:40,30,30,25;fw:900;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:200;sp:500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:8300;"
+								style="z-index:20;font-family:'Roboto';"
+							>$399 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-14" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-color="rgba(255, 255, 255, 0.5)"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:320px,230px,260px,170px;yo:380px,295px,345px,237px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:18,18,18,15;l:22;fw:500;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:250;sp:500;sR:250;"
+								data-frame_999="o:0;tp:600;st:w;sR:8250;"
+								style="z-index:21;font-family:'Roboto';"
+							>Incl. Taxes 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-9" 
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:801px,641px,731px,560px;"
+								data-text="s:18;l:70;ls:1px;fw:900;a:inherit;"
+								data-padding="r:50;l:50;"
+								data-border="bor:35px,35px,35px,35px;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:500;sp:1500;sR:500;"
+								data-frame_999="o:0;tp:600;st:w;sR:7000;"
+								data-frame_hover="c:#fff;bgc:linear-gradient(90deg, rgba(217,77,182,1) 0%, rgba(133,0,188,1) 100%);bor:35px,35px,35px,35px;oX:50;oY:50;sp:200;e:power1.inOut;"
+								style="z-index:22;background:linear-gradient(90deg, rgba(133,0,188,1) 0%, rgba(217,77,182,1) 100%);font-family:'Roboto';cursor:pointer;-webkit-box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);-moz-box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);"
+							><i class="fa-shopping-cart" style=font-size:25px;margin-right:5px;"></i> ADD TO CART 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-21" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="rgba(217, 77, 182, 0.05)"
+								data-rsp_ch="on"
+								data-xy="x:r;xo:58px,-9px,-9px,0;y:b;yo:127px,98px,98px,96px;"
+								data-text="a:inherit;"
+								data-dim="w:200px,200px,200px,100px;h:200px,200px,200px,100px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:rgba(217, 77, 182, 0.05);"
+								data-frame_0="x:center;y:middle;rZ:-90deg;tp:600;"
+								data-frame_1="rZ:200;tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								data-loop_0="rZ:30;oX:50;oY:50;"
+								data-loop_999="rZ:-30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:23;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-113-layer-24" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:320px,230px,259px,170px;yo:318px,243px,295px,193px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:18,18,18,15;l:22;fw:500;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:250;sp:500;sR:250;"
+								data-frame_999="o:0;tp:600;st:w;sR:8250;"
+								style="z-index:24;font-family:'Roboto';"
+							>From 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-114" data-title="Slide" data-thumb="/assets/thumb3.jpg" data-anim="adpr:false;">
+							<img src="/assets/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-30-slide-114-layer-19" 
+								class="tp-shape tp-shapewrapper"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:m;"
+								data-text="a:inherit;"
+								data-dim="w:2000px;h:1px;"
+								data-basealign="slide"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="rZ:35;tp:600;"
+								data-frame_1="rZ:35;tp:600;e:power3.out;st:200;sp:1000;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7800;"
+								style="z-index:5;background-color:rgba(145,152,170,0.25);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-20" 
+								class="tp-shape tp-shapewrapper"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:m;"
+								data-text="a:inherit;"
+								data-dim="w:2000px;h:1px;"
+								data-basealign="slide"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="rZ:-35;tp:600;"
+								data-frame_1="rZ:-35;tp:600;e:power3.out;st:200;sp:1000;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7800;"
+								style="z-index:6;background-color:rgba(145,152,170,0.25);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-16" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#f9f9f9"
+								data-rsp_ch="on"
+								data-xy="xo:497px,476px,379px,188px;yo:-60px,9px,49px,23px;"
+								data-text="a:inherit;"
+								data-dim="w:600px,400px,300px,300px;h:600px,400px,300px,300px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#f9f9f9;"
+								data-frame_0="x:center;y:middle;rZ:20;tp:600;"
+								data-frame_1="rZ:20;tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								data-loop_0="rZ:20;oX:50;oY:50;"
+								data-loop_999="rZ:-20;sp:40000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:7;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-3" 
+								class="rs-pxl-4"
+								data-type="text"
+								data-color="#1d2347"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:50px,50px,100px,50px;"
+								data-text="s:18;l:22;ls:3px;fw:700;a:inherit;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:100;sp:1500;sR:100;"
+								data-frame_999="o:0;tp:600;st:w;sR:7400;"
+								style="z-index:8;font-family:'Roboto';"
+							>TECH EQUIPMENT 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-22" 
+								class="rs-svg rs-pxl-3"
+								data-type="svg"
+								data-color="rgba(217, 77, 182, 0.05)"
+								data-rsp_ch="on"
+								data-xy="xo:-18px,22px,22px,4px;yo:127px,121px,121px,-13px;"
+								data-text="a:inherit;"
+								data-dim="w:180px,180px,180px,100px;h:280px,180px,180px,100px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:rgba(217, 77, 182, 0.05);"
+								data-frame_0="x:center;y:middle;rZ:-90deg;tp:600;"
+								data-frame_1="rZ:50;tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								data-loop_0="rZ:-40;oX:50;oY:50;"
+								data-loop_999="rZ:40;sp:40000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:9;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-1" 
+								class="rs-pxl-4"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:100px,100px,150px,90px;"
+								data-text="s:130,100,70,50;l:130,120,60,50;a:center;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								style="z-index:10;font-family:'Bowlby One';text-shadow:0px 15px 30px rgba(0, 0, 0, 0.15);"
+							>HEADPHONES 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-15" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#f7f6fb"
+								data-rsp_ch="on"
+								data-xy="xo:37px,78px,26px,-118px;yo:-5px,-24px,194px,41px;"
+								data-text="a:inherit;"
+								data-dim="w:1000px,800px,600px,600px;h:1000px,800px,600px,600px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#f7f6fb;"
+								data-frame_0="x:center;y:middle;rZ:75;tp:600;"
+								data-frame_1="rZ:75;tp:600;e:power3.out;st:100;sp:2000;sR:100;"
+								data-frame_999="o:0;tp:600;st:w;sR:6900;"
+								data-loop_0="rZ:-10;oX:50;oY:50;"
+								data-loop_999="rZ:10;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:11;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-11" 
+								class="rs-svg rs-pxl-3"
+								data-type="svg"
+								data-color="#8500bd"
+								data-rsp_ch="on"
+								data-xy="xo:391px,340px,195px,104px;yo:199px,149px,174px,126px;"
+								data-text="a:inherit;"
+								data-dim="w:120px,120px,100px,50px;h:120px,120px,100px,50px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#8500bd;"
+								data-frame_0="x:center;y:middle;rZ:90deg;tp:600;"
+								data-frame_1="rZ:25;tp:600;e:power3.out;sp:1500;sR:10;"
+								data-frame_999="o:0;tp:600;st:w;sR:7490;"
+								data-loop_0="rZ:30;oX:50;oY:50;"
+								data-loop_999="rZ:-30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:12;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-12" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#140e68"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:401px,269px,308px,212px;yo:441px,351px,385px,275px;"
+								data-text="a:inherit;"
+								data-dim="w:100px,70px,70px,50px;h:100px,70px,70px,50px;"
+								data-svg_src="/assets/ic_arrow_upward_24px.svg"
+								data-svgi="c:#140e68;"
+								data-frame_0="x:center;y:middle;rZ:180deg;tp:600;"
+								data-frame_1="rZ:-45;tp:600;e:power3.out;st:300;sp:1500;sR:300;"
+								data-frame_999="o:0;tp:600;st:w;sR:7200;"
+								data-loop_999="x:5;y:5;e:power1.inOut;yym:t;yys:t;yyf:t;"
+								style="z-index:13;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-8" 
+								data-type="image"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:0,72px,40px,14px;"
+								data-text="l:22;a:inherit;"
+								data-dim="w:800px,500px,650px,500px;h:800px,500px,650px,500px;"
+								data-frame_0="y:100px;tp:600;gra:0%;bri:75%;blu:0px;"
+								data-frame_1="tp:600;e:power3.out;st:50;sp:1000;sR:50;"
+								data-frame_999="o:0;tp:600;st:w;sR:7950;"
+								style="z-index:14;"
+							><img src="/assets/object_headphones_1-1.png" alt="" class="tp-rs-img" width="1600" height="1600" data-no-retina> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-18" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="#d94db6"
+								data-rsp_ch="on"
+								data-xy="xo:731px,577px,478px,314px;yo:504px,380px,451px,350px;"
+								data-text="a:inherit;"
+								data-dim="w:120px,100px,100px,50px;h:120px,100px,100px,50px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:#d94db6;"
+								data-frame_0="x:center;y:middle;rZ:-90deg;tp:600;"
+								data-frame_1="rZ:100;tp:600;e:power3.out;sp:1500;sR:10;"
+								data-frame_999="o:0;tp:600;st:w;sR:7490;"
+								data-loop_0="rZ:-30;oX:50;oY:50;"
+								data-loop_999="rZ:30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:15;font-family:'';"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-4" 
+								data-type="text"
+								data-color="#9198aa"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:660px,490px,580px,430px;"
+								data-text="w:normal;s:22,22,22,18;l:35,35,35,30;a:center;"
+								data-dim="w:640px,640px,480px,380px;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:400;sp:1500;sR:400;"
+								data-frame_999="o:0;tp:600;st:w;sR:7100;"
+								style="z-index:16;font-family:'Roboto';"
+							><i class="fa-check tp-list-sc"></i> Balanced High, Mid and Low tones<br/>
+<i class="fa-check tp-list-sc"></i> Active Noise Cancellation<br/>
+<i class="fa-check tp-list-sc"></i> Bluetooth Wireless 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-10" 
+								class="tp-shape tp-shapewrapper rs-pxl-1"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:280px,181px,222px,150px;yo:265px,212px,242px,179px;"
+								data-text="a:inherit;"
+								data-dim="w:200px,150px,150px,120px;h:200px,150px,150px,120px;"
+								data-border="bor:100px,100px,100px,0px;"
+								data-frame_0="y:50px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:100;sp:500;sR:100;"
+								data-frame_999="o:0;tp:600;st:w;sR:8400;"
+								style="z-index:17;background:linear-gradient(rgba(198,68,252,1) 0%, rgba(133,0,189,1) 50%, rgba(20,14,104,1) 100%);"
+							> 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-13" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:280px,180px,220px,150px;yo:340px,265px,295px,218px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:40,30,30,25;l:40,30,30,25;fw:900;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:200;sp:500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:8300;"
+								style="z-index:18;font-family:'Roboto';"
+							>$299 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-14" 
+								class="rs-pxl-1"
+								data-type="text"
+								data-color="rgba(255, 255, 255, 0.5)"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:280px,180px,220px,150px;yo:380px,295px,325px,242px;"
+								data-text="w:normal,nowrap,nowrap,nowrap;s:18,18,18,15;l:22;fw:500;a:center;"
+								data-dim="w:201px,150px,150px,120px;"
+								data-frame_0="y:30px;sX:0.5;sY:0.5;tp:600;"
+								data-frame_1="tp:600;e:back.out;st:250;sp:500;sR:250;"
+								data-frame_999="o:0;tp:600;st:w;sR:8250;"
+								style="z-index:19;font-family:'Roboto';"
+							>Incl. Taxes 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-9" 
+								data-type="text"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:801px,641px,731px,560px;"
+								data-text="s:18;l:70;ls:1px;fw:900;a:inherit;"
+								data-padding="r:50;l:50;"
+								data-border="bor:35px,35px,35px,35px;"
+								data-frame_0="y:100px;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:500;sp:1500;sR:500;"
+								data-frame_999="o:0;tp:600;st:w;sR:7000;"
+								data-frame_hover="c:#fff;bgc:linear-gradient(90deg, rgba(217,77,182,1) 0%, rgba(133,0,188,1) 100%);bor:35px,35px,35px,35px;oX:50;oY:50;sp:200;e:power1.inOut;"
+								style="z-index:20;background:linear-gradient(90deg, rgba(133,0,188,1) 0%, rgba(217,77,182,1) 100%);font-family:'Roboto';cursor:pointer;-webkit-box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);-moz-box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);box-shadow:0px 15px 40px 0px rgba(0,0,0,0.1);"
+							><i class="fa-shopping-cart" style=font-size:25px;margin-right:5px;"></i> ADD TO CART 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-30-slide-114-layer-21" 
+								class="rs-svg rs-pxl-1"
+								data-type="svg"
+								data-color="rgba(217, 77, 182, 0.05)"
+								data-rsp_ch="on"
+								data-xy="x:r;xo:58px,-9px,-9px,0;y:b;yo:127px,98px,98px,96px;"
+								data-text="a:inherit;"
+								data-dim="w:200px,200px,200px,100px;h:200px,200px,200px,100px;"
+								data-svg_src="/assets/ic_play_arrow_24px.svg"
+								data-svgi="c:rgba(217, 77, 182, 0.05);"
+								data-frame_0="x:center;y:middle;rZ:-90deg;tp:600;"
+								data-frame_1="rZ:200;tp:600;e:power3.out;st:200;sp:1500;sR:200;"
+								data-frame_999="o:0;tp:600;st:w;sR:7300;"
+								data-loop_0="rZ:30;oX:50;oY:50;"
+								data-loop_999="rZ:-30;sp:30000;yym:t;yyr:t;yys:t;yyf:t;"
+								style="z-index:21;font-family:'';"
+							> 
+							</rs-layer><!--
+-->						</rs-slide>
+					</rs-slides>
+				</rs-module>
+				<script>
+					
+				</script>
+<script>
+		if(typeof revslider_showDoubleJqueryError === "undefined") {function revslider_showDoubleJqueryError(sliderID) {console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");console.log("To fix this, you can:");console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");console.log("2. Find the double jQuery.js inclusion and remove it");return "Double Included jQuery Library";}}
+</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+
+				<script>
+					var	tpj = jQuery;
+					if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+					if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+					RS_MODULES.modules["revslider301"] = {once: RS_MODULES.modules["revslider301"]!==undefined ? RS_MODULES.modules["revslider301"].once : undefined, init:function() {
+						window.revapi30 = window.revapi30===undefined || window.revapi30===null || window.revapi30.length===0  ? document.getElementById("rev_slider_30_1") : window.revapi30;
+						if(window.revapi30 === null || window.revapi30 === undefined || window.revapi30.length==0) { window.revapi30initTry = window.revapi30initTry ===undefined ? 0 : window.revapi30initTry+1; if (window.revapi30initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider301"].init()}); return;}
+						window.revapi30 = jQuery(window.revapi30);
+						if(window.revapi30.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_30_1"); return;}
+						revapi30.revolutionInit({
+								revapi:"revapi30",
+								DPR:"dpr",
+								sliderLayout:"fullscreen",
+								visibilityLevels:"1240,1024,778,480",
+								gridwidth:"1240,1024,778,480",
+								gridheight:"900,768,960,720",
+								spinner:"spinner5",
+								perspective:600,
+								perspectiveType:"local",
+								editorheight:"900,768,960,720",
+								responsiveLevels:"1240,1024,778,480",
+								progressBar: {
+									color:"#d8d7dc",
+									size:10,
+									x:0,
+									y:0
+									},
+								navigation: {
+									mouseScrollNavigation:false,
+									wheelCallDelay:1000,
+									onHoverStop:false,
+									arrows: {
+										enable:true,
+										tmp:"<div class=\"tp-title-wrap\">  	<div class=\"tp-arr-imgholder\"></div>    <div class=\"tp-arr-img-over\"></div> </div>",
+										style:"new-bullet-bar",
+										hide_onmobile:true,
+										hide_under:778,
+										left: {
+											h_offset:30
+										},
+										right: {
+											h_offset:30
+										}
+									}
+								},
+								parallax: {
+									levels:[5,10,15,20,25,30,35,40,45,46,47,48,49,50,51,30],
+									type:"scroll",
+									origo:"slidercenter",
+									speed:1000,
+									speedls:1000
+								},
+								viewPort: {
+									global:false,
+									globalDist:"-200px",
+									enable:false,
+									visible_area:"20%"
+								},
+								fallbacks: {
+									allowHTML5AutoPlayOnAndroid:true
+								},
+						});
+						
+					}} // End of RevInitScript
+					if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
+				</script>
+
+
+
+<style>.tp-list-sc{color:#8500bd; margin-right:5px}.new-bullet-bar.tparrows{cursor:pointer; background:rgba(255,255,255,1); min-width:80px; min-height:80px; position:absolute; display:block; z-index:100; border-radius:0px}.new-bullet-bar.tparrows:before{font-family:"revicons"; font-size:20px; color:#2d3032; display:block; line-height:80px; text-align:center;  z-index:2; position:relative}.new-bullet-bar.tparrows.tp-leftarrow:before{content:"\e824"}.new-bullet-bar.tparrows.tp-rightarrow:before{content:"\e825"}.new-bullet-bar .tp-title-wrap{position:absolute; z-index:1; display:inline-block; background:#000; background:rgba(0,0,0,0.5); min-height:80px; line-height:80px; top:0px; margin-left:0px; border-radius:0px; overflow:hidden; transition:opacity 0.6s; -webkit-transition:opacity 0.6s; -moz-transition:opacity 0.6s; -webkit-transform:scale(0); -moz-transform:scale(0); transform:scale(0); visibility:hidden; opacity:0}.new-bullet-bar.tparrows.rs-touchhover .tp-title-wrap{-webkit-transform:scale(1); -moz-transform:scale(1); transform:scale(1); opacity:1; visibility:visible}.new-bullet-bar.tparrows.rs-touchhover:before{color:#fff}.new-bullet-bar.tp-rightarrow .tp-title-wrap{right:0px; -webkit-transform-origin:100% 50%; border-radius:0px;width:160px;height:100px; margin-top:-10px;margin-right:-40px;-webkit-box-shadow:0px 10px 30px 0px rgba(0,0,0,0.35);-moz-box-shadow:0px 10px 30px 0px rgba(0,0,0,0.35);box-shadow:0px 10px 30px 0px rgba(0,0,0,0.35)}.new-bullet-bar.tp-leftarrow .tp-title-wrap{left:0px; -webkit-transform-origin:100% 50%; border-radius:0px;width:160px;height:100px;margin-top:-10px;margin-left:-40px;-webkit-box-shadow:0px 10px 30px 0px rgba(0,0,0,0.35);-moz-box-shadow:0px 10px 30px 0px rgba(0,0,0,0.35);box-shadow:0px 10px 30px 0px rgba(0,0,0,0.35)}.new-bullet-bar .tp-arr-imgholder{width:100%; height:100%; position:absolute; top:0px; left:0px; background-position:center center; background-size:cover}.new-bullet-bar .tp-arr-img-over{width:100%; height:100%; position:absolute; top:0px; left:0px; background:#000; background:rgba(0,0,0,0.25)}@font-face{font-family:'Material Icons'; font-style:normal; font-weight:400; src:url(//fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2')}rs-module .material-icons{font-family:'Material Icons'; font-weight:normal; font-style:normal;font-size:inherit; display:inline-block; text-transform:none; letter-spacing:normal; word-wrap:normal; white-space:nowrap; direction:ltr; vertical-align:top; line-height:inherit; font-feature-settings:'liga'; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; -moz-osx-font-smoothing:grayscale}</style>
+<script type="text/javascript">window.RVS = window.RVS || {}; window.RVS.ENV = window.RVS.ENV || {}; window.RVS.ENV.TRANSITIONPACK_URL = "https://zazamap.com/wp-content/plugins/revslider-transitionpack-addon/";</script>
+		</body>
+				</html>
+		
