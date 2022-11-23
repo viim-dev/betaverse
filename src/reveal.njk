@@ -13,7 +13,7 @@ init="params = (new URL(document.location)).searchParams;refferedBy = params.get
     
     <div class="relative h-full">
     <div class="card shadow-xl image-full">
-        <div class="justify-center card-body" x-show="addressOfInterest">
+        <div class="justify-center card-body">
             <h2 class="card-title text-2xl font-bold">AWARE by ViiM</h2> 
             <p>Fill out the form below.</p> 
             
@@ -23,7 +23,7 @@ init="params = (new URL(document.location)).searchParams;refferedBy = params.get
     </div> 
         
     <section class="py-2 flex flex-row">
-        <div class="w-full" x-show="addressOfInterest">
+        <div class="w-full">
         {% include "views/revealjotform.njk" %}
         </div>
     </section>
