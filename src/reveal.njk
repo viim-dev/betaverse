@@ -7,7 +7,7 @@ permalink: 'reveal/index.html'
 {% block body %}
 <main class="">
 <div class="flex flex-row" x-data="{refferedBy:'viim'}" 
-init="refferedBy=((new URL(document.location)).searchParams).params.get('ref');console.log(refferedBy)">
+init="refferedBy=((new URL(document.location)).searchParams).get('ref');console.log(refferedBy)">
     
     <div class="w-full h-full flex flex-col content-center">
     
