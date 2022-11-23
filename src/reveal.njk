@@ -1,0 +1,36 @@
+---
+permalink: 'reveal/index.html'
+---
+{% set title = 'Aware by ViiM' %}
+{% extends "layout.njk" %}
+
+{% block body %}
+<main class="">
+<div class="flex flex-row" x-data="{refferedBy:''}" 
+init="params = (new URL(document.location)).searchParams;refferedBy = params.get('ref');">
+    
+    <div class="w-full h-full flex flex-col content-center">
+    
+    <div class="relative h-full">
+    <div class="card shadow-xl image-full">
+        <div class="justify-center card-body" x-show="addressOfInterest">
+            <h2 class="card-title text-2xl font-bold">AWARE by ViiM</h2> 
+            <p>Fill out the form below.</p> 
+            
+        </div>
+
+        
+    </div> 
+        
+    <section class="py-2 flex flex-row">
+        <div class="w-full" x-show="addressOfInterest">
+        {% include "views/revealjotform.njk" %}
+        </div>
+    </section>
+    </div>
+    
+  </div>
+
+</div>
+</main>
+{% endblock %}
