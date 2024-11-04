@@ -117,7 +117,7 @@
         const GRID_SIZE_Y = 40;
         const CELL_SIZE = 20;
       // Previous wave animation code remains the same, but with these modifications:
-      const characters = ['⌬', '⌭', '⌮', '⌯', '⌰', '⌱', '⌲', '⌳', '⌴', '⌵', '⌶', '⌷', '⌸', '⌹', '⌺', '⌻', '⌼', '⌽'];
+      const characters = ['∴', '∵',  '∷', '∶']; // More tech-looking characters
 
       // Add quantum background symbols
       const quantumSymbols = ['ψ', 'Φ', '∰', '∭', '∬', '∫', '∮', '∯', '∰', '∱', '∲', '∳'];
@@ -301,7 +301,7 @@
             window.addEventListener('deviceorientation', handleDeviceOrientation);
         }
 
-        window.addEventListener('mousemove', handleMouseMove);
+        // window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('resize', resizeCanvas);
 
         document.addEventListener('click', async () => {
