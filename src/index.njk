@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ViiM Spatial Hardware</title>
+  <style>
+      @keyframes subtle-glow {
+          0% { filter: drop-shadow(0 0 10px rgba(204, 0, 0, 0.3)); }
+          50% { filter: drop-shadow(0 0 20px rgba(204, 0, 0, 0.5)); }
+          100% { filter: drop-shadow(0 0 10px rgba(204, 0, 0, 0.3)); }
+      }
+
+      @keyframes quantum-fade {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+      }
+
+      body {
+          margin: 0;
+          overflow: hidden;
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          font-family: 'Arial', sans-serif;
+          color: #cc0000;
+      }
+
+      canvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background: transparent;
+      }
+
+      .central-container {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+      }
+
+      .logo-container {
+          width: 300px;
+          height: auto;
+          animation: subtle-glow 3s infinite ease-in-out;
+      }
+
+      .logo {
+          width: 100%;
+          height: auto;
+      }
+
+      .tagline {
+          font-family: monospace;
+          font-size: 1.2rem;
+          opacity: 0;
+          animation: quantum-fade 2s forwards ease-out;
+          animation-delay: 1s;
+          text-align: center;
+          letter-spacing: 0.2em;
+      }
+
+      .quantum-symbols {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+          opacity: 0.1;
+      }
+
+      #debug { display: none; }
+  </style>
+</head>
+  <body>
+    <div class="quantum-symbols"></div>
+    <canvas id="canvas"></canvas>
+    <div class="central-container">
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 400 100">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff0000;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
+                      fill="url(#logoGradient)" font-size="80" font-weight="bold" font-family="Arial">
+                    ViiM
+                </text>
+            </svg>
+        </div>
+        <div class="tagline">TRANSCEND SPATIAL BOUNDARIES</div>
+    </div>
+    <div id="debug"></div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const debug = document.getElementById('debug');
+
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+
+        // Grid settings
+        const GRID_SIZE_X = 40;
+        const GRID_SIZE_Y = 40;
+        const CELL_SIZE = 20;
+      // Previous wave animation code remains the same, but with these modifications:
+      const characters = ['⌬', '⌭', '⌮', '⌯', '⌰', '⌱', '⌲', '⌳', '⌴', '⌵', '⌶', '⌷', '⌸', '⌹', '⌺', '⌻', '⌼', '⌽'];
+
+      // Add quantum background symbols
+      const quantumSymbols = ['ψ', 'Φ', '∰', '∭', '∬', '∫', '∮', '∯', '∰', '∱', '∲', '∳'];
+      const symbolsContainer = document.querySelector('.quantum-symbols');
+
+      function createQuantumBackground() {
+          symbolsContainer.innerHTML = '';
+          const symbolCount = 50;
+          for(let i = 0; i < symbolCount; i++) {
+              const symbol = document.createElement('div');
+              symbol.style.position = 'absolute';
+              symbol.style.left = `${Math.random() * 100}%`;
+              symbol.style.top = `${Math.random() * 100}%`;
+              symbol.style.transform = `rotate(${Math.random() * 360}deg)`;
+              symbol.style.fontSize = `${Math.random() * 20 + 10}px`;
+              symbol.textContent = quantumSymbols[Math.floor(Math.random() * quantumSymbols.length)];
+              symbolsContainer.appendChild(symbol);
+          }
+      }
+
+        // 3D projection settings
+        let baseIsoAngleX = Math.PI / 6;
+        let baseIsoAngleY = Math.PI / 6;
+        let currentIsoAngleX = baseIsoAngleX;
+        let currentIsoAngleY = baseIsoAngleY;
+        let targetIsoAngleX = baseIsoAngleX;
+        let targetIsoAngleY = baseIsoAngleY;
+
+        // Interaction state
+        const interactionState = {
+            mouseX: 0,
+            mouseY: 0,
+            tiltX: 0,
+            tiltY: 0,
+            isMobile: false
+        };
+
+        class WaterGrid {
+            constructor() {
+                this.grid = Array(GRID_SIZE_X).fill().map(() => 
+                    Array(GRID_SIZE_Y).fill().map(() => ({
+                        height: 0,
+                        velocity: 0,
+                        char: characters[Math.floor(Math.random() * characters.length)]
+                    }))
+                );
+                this.drops = [];
+                this.lastDrop = 0;
+            }
+
+            toScreen(x, y, z) {
+                const SCALE_X = Math.cos(currentIsoAngleX) * CELL_SIZE;
+                const SCALE_Y = Math.sin(currentIsoAngleY) * CELL_SIZE;
+
+                const tiltOffsetX = (x - GRID_SIZE_X/2) * Math.sin(currentIsoAngleX - baseIsoAngleX) * 2;
+                const tiltOffsetY = (y - GRID_SIZE_Y/2) * Math.sin(currentIsoAngleY - baseIsoAngleY) * 2;
+
+                const screenX = canvas.width/2 + (x - y) * SCALE_X + tiltOffsetX;
+                const screenY = canvas.height/2 + (x + y) * SCALE_Y - z * 2 + tiltOffsetY;
+
+                return { x: screenX, y: screenY };
+            }
+
+            createDrop() {
+                const centerX = Math.floor(GRID_SIZE_X/2);
+                const centerY = Math.floor(GRID_SIZE_Y/2);
+                this.grid[centerX][centerY].velocity = 5;
+                this.lastDrop = Date.now();
+            }
+
+            update() {
+                const dampening = 0.99;
+                const tension = 0.020;
+
+                if (Date.now() - this.lastDrop > 3000) {
+                    this.createDrop();
+                }
+
+                const tiltForceX = (targetIsoAngleX - baseIsoAngleX) * 0.1;
+                const tiltForceY = (targetIsoAngleY - baseIsoAngleY) * 0.1;
+
+                for (let x = 1; x < GRID_SIZE_X-1; x++) {
+                    for (let y = 1; y < GRID_SIZE_Y-1; y++) {
+                        const cell = this.grid[x][y];
+                        const deltaHeight = this.grid[x][y].height;
+
+                        const force = (
+                            this.grid[x-1][y].height +
+                            this.grid[x+1][y].height +
+                            this.grid[x][y-1].height +
+                            this.grid[x][y+1].height
+                        ) / 4 - deltaHeight;
+
+                        cell.velocity += force * tension;
+                        cell.velocity += tiltForceX * (x - GRID_SIZE_X/2) / GRID_SIZE_X;
+                        cell.velocity += tiltForceY * (y - GRID_SIZE_Y/2) / GRID_SIZE_Y;
+
+                        cell.velocity *= dampening;
+                        cell.height += cell.velocity;
+                    }
+                }
+
+                currentIsoAngleX += (targetIsoAngleX - currentIsoAngleX) * 0.1;
+                currentIsoAngleY += (targetIsoAngleY - currentIsoAngleY) * 0.1;
+            }
+
+            draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let y = 0; y < GRID_SIZE_Y; y++) {
+                    for (let x = 0; x < GRID_SIZE_X; x++) {
+                        const cell = this.grid[x][y];
+                        const height = cell.height;
+                        const pos = this.toScreen(x, y, height);
+
+                        if (Math.abs(height) > 0.1) {
+                            // Red color scheme with opacity based on height
+                            ctx.fillStyle = `rgba(204, 0, 0, ${Math.min(Math.abs(height/2), 1)})`;
+                            ctx.font = '12px monospace';
+                            ctx.fillText(cell.char, pos.x, pos.y);
+                        }
+                    }
+                }
+
+                // Subtle grid outline
+                ctx.strokeStyle = 'rgba(204, 0, 0, 0.1)';
+                ctx.beginPath();
+                const corner1 = this.toScreen(0, 0, 0);
+                const corner2 = this.toScreen(GRID_SIZE_X, 0, 0);
+                const corner3 = this.toScreen(GRID_SIZE_X, GRID_SIZE_Y, 0);
+                const corner4 = this.toScreen(0, GRID_SIZE_Y, 0);
+                ctx.moveTo(corner1.x, corner1.y);
+                ctx.lineTo(corner2.x, corner2.y);
+                ctx.lineTo(corner3.x, corner3.y);
+                ctx.lineTo(corner4.x, corner4.y);
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+
+        const waterGrid = new WaterGrid();
+        WaterGrid.prototype.draw = function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+            for (let y = 0; y < GRID_SIZE_Y; y++) {
+                for (let x = 0; x < GRID_SIZE_X; x++) {
+                    const cell = this.grid[x][y];
+                    const height = cell.height;
+                    const pos = this.toScreen(x, y, height);
+  
+                    if (Math.abs(height) > 0.1) {
+                        const intensity = Math.min(Math.abs(height/2), 1);
+                        const hue = (intensity * 30); // Subtle red variation
+                        ctx.fillStyle = `hsla(${hue}, 100%, 50%, ${intensity})`;
+                        ctx.font = `${12 + height * 2}px monospace`;
+                        ctx.fillText(cell.char, pos.x, pos.y);
+                    }
+                }
+            }
+        };
+
+        function handleDeviceOrientation(event) {
+            interactionState.isMobile = true;
+            const gamma = (event.gamma || 0) * Math.PI / 180;
+            const beta = (event.beta || 0) * Math.PI / 180;
+            targetIsoAngleX = baseIsoAngleX + gamma * 0.2;
+            targetIsoAngleY = baseIsoAngleY + beta * 0.2;
+            targetIsoAngleX = Math.max(Math.min(targetIsoAngleX, Math.PI/3), 0);
+            targetIsoAngleY = Math.max(Math.min(targetIsoAngleY, Math.PI/3), 0);
+        }
+
+        function handleMouseMove(event) {
+            if (interactionState.isMobile) return;
+            const mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
+            const mouseY = (event.clientY / window.innerHeight - 0.5) * 2;
+            targetIsoAngleX = baseIsoAngleX + mouseX * 0.2;
+            targetIsoAngleY = baseIsoAngleY + mouseY * 0.2;
+        }
+
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', handleDeviceOrientation);
+        }
+
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('resize', resizeCanvas);
+
+        document.addEventListener('click', async () => {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                try {
+                    const permission = await DeviceOrientationEvent.requestPermission();
+                    if (permission === 'granted') {
+                        window.addEventListener('deviceorientation', handleDeviceOrientation);
+                    }
+                } catch (error) {
+                    console.error('Error requesting device orientation permission:', error);
+                }
+                }
+        });
+
+      // createQuantumBackground();
+      // setInterval(createQuantumBackground, 10000); // Refresh every 10 seconds
+
+        function animate() {
+            waterGrid.update();
+            waterGrid.draw();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
